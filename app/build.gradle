@@ -28,4 +28,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     // 事务处理
     implementation 'org.greenrobot:eventbus:3.1.1'
+
+//    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+//    implementation "io.reactivex.rxjava2:rxjava:2.2.1"
+
+    implementation 'com.hwangjr.rxbus:rxbus:1.0.6'
 }

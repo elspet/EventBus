@@ -85,3 +85,61 @@ btnPublishMsg.setOnClickListener(new View.OnClickListener() {
 并得出结论：
 EventBus以上标准都合格，而RxBus存在事件分发的效率问题。
 所以我决定（2018.09.20）新项目暂时考虑选择用EventBus
+
+
+#### 六、RxBus
+引用库：
+```java
+    implementation 'com.hwangjr.rxbus:rxbus:1.0.6'
+```
++ 定义消息事件
+```java
+/**
+ * RxBus消息
+ *
+ * @author Lisa
+ * @date 2018/9/20
+ */
+public class RxBusMsg {
+
+    public String rxMsg;
+
+    public RxBusMsg(String msg) {
+        this.rxMsg = msg;
+    }
+}
+```
+
++ 订阅
+```java
+@Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG,"onStart");
+        if(!RxBus.get().hasRegistered(this)){
+            RxBus.get().register(this);
+        }
+    }
+
+    @com.hwangjr.rxbus.annotation.Subscribe
+    public void onReceiveRxBusEvent(RxBusMsg msg) {
+           // purpose
+           tvReceivedRxMsg.setText(msg.rxMsg);
+    }
+    
+    @Override
+    protected void onStop() {
+        super.onStop();``
+        if(isFinishing()&& RxBus.get().hasRegistered(this)){
+           RxBus.get().unregister(this);
+        }
+    }
+```
+
+
++ 发布消息
+```java
+    // 发送RxBus消息
+    RxBusMsg rxBusMsg = new RxBusMsg("This is RxBus msg");
+    RxBus.get().post(rxBusMsg);
+```

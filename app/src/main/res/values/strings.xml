@@ -3,6 +3,7 @@
 
     <string name="app_subscriber_tip">Subscriber:</string>
     <string name="app_subscriber_hint">这里是接收到的消息</string>
+    <string name="app_subscriber_rxbus_hint">这里是Rx接收到的消息</string>
     <string name="app_subscriber_to_publisher">前往下个页面</string>
     <string name="app_publisher_tip">Publisher:</string>
     <string name="app_publisher_btn_tip">点击发送数据</string>

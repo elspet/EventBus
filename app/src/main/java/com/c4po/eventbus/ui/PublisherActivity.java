@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.c4po.eventbus.R;
+import com.c4po.eventbus.event.RxBusMsg;
 import com.c4po.eventbus.event.SpecificEvent;
+import com.hwangjr.rxbus.RxBus;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -27,10 +29,15 @@ public class PublisherActivity extends AppCompatActivity {
         btnPublishMsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 发送EventBus消息
                 SpecificEvent specificEvent = new SpecificEvent("Lisa","iamgeUrl");
                 EventBus.getDefault().post(specificEvent);
                 PublisherActivity.this.finish();
             }
         });
+
+        // 发送RxBus消息
+        RxBusMsg rxBusMsg = new RxBusMsg("This is RxBus msg");
+        RxBus.get().post(rxBusMsg);
     }
 }
