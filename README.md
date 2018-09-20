@@ -73,3 +73,15 @@ btnPublishMsg.setOnClickListener(new View.OnClickListener() {
             }
         });
 ```
+
+#### 五、关于EventBus与RxBus的对比
+参考资料[RxBus真的能替代EventBus吗？](https://www.jianshu.com/p/669eda5dc5a4)
+文中从几个指标来对EventBus、RxBus进行审评
++ 是否容易订阅事件
++ 是否容易发送事件
++ 是否能方便的切换线程
++ 性能
+
+并得出结论：
+EventBus以上标准都合格，而RxBus存在事件分发的效率问题。
+所以我决定（2018.09.20）新项目暂时考虑选择用EventBus
